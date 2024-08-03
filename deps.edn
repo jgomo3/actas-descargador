@@ -1,0 +1,15 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.11.3"}
+        org.clojure/data.csv {:mvn/version "1.0.1"}
+        clj-http/clj-http {:mvn/version "3.13.0"}}
+ :aliases
+ {:run-m {:main-opts ["-m" "jgomo3.actas-descargador"]}
+  :run-x {:ns-default jgomo3.actas-descargador
+          :exec-fn descargar}
+  :build {:deps {io.github.clojure/tools.build
+                 {:mvn/version "0.10.3"}}
+          :ns-default build}
+  :test {:extra-paths ["test"]
+         :extra-deps {org.clojure/test.check {:mvn/version "1.1.1"}
+                      io.github.cognitect-labs/test-runner
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}}}}
